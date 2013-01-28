@@ -7,7 +7,7 @@ DESCRIPTION = 'Simple wrap django views to render json '
 
 def install_deps():
     print "Installing dependencies"
-    check_call(['git', 'submodule', 'update'])
+    check_call(['git', 'submodule', 'update', '--force'])
     cdir = os.path.abspath(os.path.dirname(__file__))
     os.chdir(os.path.join(cdir, 'pyojster/ojster'))
     check_call(['npm', 'install', '.'])
