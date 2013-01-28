@@ -1,3 +1,3 @@
 [submodule "pyojster/ojster"]
 	path = pyojster/ojster
-	url = git@github.com:4u/ojster
+	url = http://github.com/4u/ojster.git
