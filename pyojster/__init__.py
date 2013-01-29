@@ -1,4 +1,5 @@
-import os.path
+import os
+import shutil
 from subprocess import check_call
 
 def compile(source, target):
@@ -8,3 +9,10 @@ def compile(source, target):
     print "Running ojster: ", ' '.join(cmd)
     check_call(cmd)
     print "Done"
+
+def install(target_dir):
+    ojster_location = os.path.abspath(os.path.dirname(__file__))
+    ojster_location = os.path.join(ojster_location, 'ojster/client/goog/ojster.js')
+    shutil.copy2(ojster_location, target_dir)
+
+    
