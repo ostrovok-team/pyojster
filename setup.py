@@ -1,4 +1,6 @@
+import glob
 import os
+import shutil
 from setuptools import setup
 from setuptools.command.develop import develop
 from subprocess import check_call
@@ -12,6 +14,11 @@ def install_deps():
     check_call(['git', 'submodule', 'update', '--init', '--force'])
     os.chdir(os.path.join(cdir, 'pyojster/ojster'))
     check_call(['npm', 'install', '.'])
+    for filename in glob.glob('.git*'):
+        if os.path.isfile(filename):
+            os.remove(filename)
+        else:
+            shutil.rmtree(filename)
     os.chdir(cdir)
 
 class do_develop(develop):
